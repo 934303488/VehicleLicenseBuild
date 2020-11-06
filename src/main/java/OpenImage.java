@@ -1,14 +1,19 @@
+import lombok.SneakyThrows;
+
 import java.awt.BorderLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 public class OpenImage extends JPanel
 {
+    @SneakyThrows
     public OpenImage(String fileName)
     {
+//        File file=new File(fileName);
         ImageIcon img = new ImageIcon(fileName);//创建ImageIcon实例，并加载图片
         JLabel jl = new JLabel(img);//创建Lable实例，并加载Icon
         this.setLayout(new BorderLayout());//创建布局管理器实例

@@ -55,10 +55,10 @@ public class Listener implements ActionListener {
         } else if ((e.getActionCommand()).equals("打开图片")) {
             if (!va.equals("") && !ca.equals("")) {
                 //正面
-                String pathface = "src/main/java/output/VehicleLicenseFCopy.png";// path是要打开的文件的路径。
+                String pathface = "output/VehicleLicenseFCopy.png";// path是要打开的文件的相对路径。
                 OpenImage.open(pathface);
                 //背面
-                String pathback = "src/main/java/output/VehicleLicenseBCopy.png";
+                String pathback = "output/VehicleLicenseBCopy.png";
                 OpenImage.open(pathback);
             }
             else {

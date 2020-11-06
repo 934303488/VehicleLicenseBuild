@@ -4,10 +4,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
 
 
 /**
@@ -39,14 +37,13 @@ public class VehicleLicense {
     /**
      * 编辑图片,往指定位置添加文字
      *
-     * @param srcImgPath    :源图片路径
+     * @param srcFile    :源图片路径
      * @param targetImgPath :保存图片路径
      * @param list          :文字集合
      */
     @SneakyThrows
-    public static void writeImage(String srcImgPath, String targetImgPath, List<ImageDTO> list) {
-        File srcImgFile = new File(srcImgPath);//得到文件
-        Image srcImg = ImageIO.read(srcImgFile);//文件转化为图片
+    public static void writeImage(File srcFile, File  targetImgPath, List<ImageDTO> list) {
+        Image srcImg = ImageIO.read(srcFile);//打开图片
         int srcImgWidth = srcImg.getWidth(null);//获取图片的宽，没有需要等待图像被加载的对象，所以observer置为null
         int srcImgHeight = srcImg.getHeight(null);//获取图片的高
 
@@ -72,15 +69,20 @@ public class VehicleLicense {
         // 输出图片
         FileOutputStream outImgStream = new FileOutputStream(targetImgPath);
         ImageIO.write(bufImg, "png", outImgStream);
-
+//        File out = new File("output/VehicleLicenseFCopy.png");
+//        if (out.exists()){
+//            System.out.println("@@@  exists @@@@\n");
+//        }
     }
 
 
+    @SneakyThrows
     public static String imageBuilder(String VanNumber, String CarType) {
-        String faceSrcImgPath = "src/main/java/file/VehicleLicenseFCopy.png";    //正面源图片地址
-        String faceTarImgPath = "src/main/java/output/VehicleLicenseFCopy.png";   //正面目标图片的地址
-        String backSrcImgPath = "src/main/java/file/VehicleLicenseBCopy.png";    //背面源图片地址
-        String backTarImgPath = "src/main/java/output/VehicleLicenseBCopy.png";    //背面目标图片的地址
+        File file=new File("file/VehicleLicenseFCopy.png");//正面源图片地址
+        File fileTage=new File("output/VehicleLicenseFCopy.png");//正面目标图片的地址
+        FileOutputStream outputStreamTarge = new FileOutputStream(fileTage);
+        File backSrcImg=new File("file/VehicleLicenseBCopy.png");//背面源图片地址
+        File backTarImg=new File("output/VehicleLicenseBCopy.png");//背面目标图片的地址
 
 
         //获取正面数据集合
@@ -105,14 +107,10 @@ public class VehicleLicense {
 
 
         //编辑正面图片
-        writeImage(faceSrcImgPath, faceTarImgPath, facelist);
-        //编辑正面图片
-        writeImage(backSrcImgPath, backTarImgPath, backList);
-        File file=new File(faceTarImgPath);
-        File file2=new File(backTarImgPath);
-        Map<String,Object> map=new HashMap<>();
-        map.put("face",faceTarImgPath);
-        map.put("back",backTarImgPath);
-        return faceTarImgPath;
+        writeImage(file,fileTage, facelist);
+        //编辑背面图片
+        writeImage(backSrcImg, backTarImg, backList);
+
+        return null;
     }
 }

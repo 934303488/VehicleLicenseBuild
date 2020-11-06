@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact name="VehicleLicenseBuild:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/VehicleLicenseBuild_jar</output-path>
+    <root id="root">
+      <element id="archive" name="VehicleLicenseBuild.jar">
+        <element id="module-output" name="VehicleLicenseBuild" />
+        <element id="directory" name="libs">
+          <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.18.12" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
