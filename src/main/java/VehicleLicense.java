@@ -69,10 +69,6 @@ public class VehicleLicense {
         // 输出图片
         FileOutputStream outImgStream = new FileOutputStream(targetImgPath);
         ImageIO.write(bufImg, "png", outImgStream);
-//        File out = new File("output/VehicleLicenseFCopy.png");
-//        if (out.exists()){
-//            System.out.println("@@@  exists @@@@\n");
-//        }
     }
 
 
