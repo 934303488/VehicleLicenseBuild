@@ -10,6 +10,7 @@ public class Listener implements ActionListener {
     private final JLabel jLabelca;
     private final JLabel jLabelva;
     private final JLabel jLabelSuccess;
+    Integer flag=0;
 
 
     /**
@@ -46,6 +47,7 @@ public class Listener implements ActionListener {
                 VehicleLicense.imageBuilder(VanNumber.getText(), CarType.getText());
                 //设置lable的显示内容
                 jLabelSuccess.setText("证件生成成功");
+                flag=1;
             } else if (ca.equals("") && !va.equals("")) {
                 jLabelca.setText("车辆类型不能为空!");
             }
@@ -53,7 +55,7 @@ public class Listener implements ActionListener {
                 jLabelva.setText("车牌号不能为空!");
             }
         } else if ((e.getActionCommand()).equals("打开图片")) {
-            if (!va.equals("") && !ca.equals("")) {
+            if (!va.equals("") && !ca.equals("") && flag.equals(1)) {
                 //正面
                 String pathface = "output/VehicleLicenseFCopy.png";// path是要打开的文件的相对路径。
                 OpenImage.open(pathface);
