@@ -13,7 +13,6 @@ public class OpenImage extends JPanel
     @SneakyThrows
     public OpenImage(String fileName)
     {
-//        File file=new File(fileName);
         ImageIcon img = new ImageIcon(fileName);//创建ImageIcon实例，并加载图片
         JLabel jl = new JLabel(img);//创建Lable实例，并加载Icon
         this.setLayout(new BorderLayout());//创建布局管理器实例

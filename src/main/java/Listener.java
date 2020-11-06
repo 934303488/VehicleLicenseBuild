@@ -7,26 +7,28 @@ public class Listener implements ActionListener {
     //创建成员对象，用来接收监听到的元素对象
     private final JTextField VanNumber;
     private final JTextField CarType;
-    private final JLabel jLabelca;
-    private final JLabel jLabelva;
+    private final JLabel jLabelCarType;
+    private final JLabel jLabelVanNumber;
     private final JLabel jLabelSuccess;
+
+    //设置变量用来作为标签
     Integer flag=0;
 
 
     /**
      * Listener构造方法
-     * @param text_VanNumber
-     * @param text_CarType
-     * @param jLabelva
-     * @param jLabelca
+     * @param textVanNumber
+     * @param textCarType
+     * @param jLabelVanNumber
+     * @param jLabelCarType
      * @param jLabelSuccess
      */
-    public Listener(JTextField text_VanNumber, JTextField text_CarType, JLabel jLabelva, JLabel jLabelca, JLabel jLabelSuccess) {
+    public Listener(JTextField textVanNumber, JTextField textCarType, JLabel jLabelVanNumber, JLabel jLabelCarType, JLabel jLabelSuccess) {
         //将监听到的元素对象赋值给成员对象
-        this.VanNumber = text_VanNumber;
-        this.CarType = text_CarType;
-        this.jLabelca=jLabelca;
-        this.jLabelva=jLabelva;
+        this.VanNumber = textVanNumber;
+        this.CarType = textCarType;
+        this.jLabelCarType=jLabelCarType;
+        this.jLabelVanNumber=jLabelVanNumber;
         this.jLabelSuccess=jLabelSuccess;
 
     }
@@ -34,8 +36,8 @@ public class Listener implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         //每次点击按钮前初始化lable
-        jLabelca.setText(null);
-        jLabelva.setText(null);
+        jLabelCarType.setText(null);
+        jLabelVanNumber.setText(null);
         jLabelSuccess.setText(null);
         //提取JTextField中的输入文案
         String ca = CarType.getText();
@@ -49,10 +51,10 @@ public class Listener implements ActionListener {
                 jLabelSuccess.setText("证件生成成功");
                 flag=1;
             } else if (ca.equals("") && !va.equals("")) {
-                jLabelca.setText("车辆类型不能为空!");
+                jLabelCarType.setText("车辆类型不能为空!");
             }
             else {
-                jLabelva.setText("车牌号不能为空!");
+                jLabelVanNumber.setText("车牌号不能为空!");
             }
         } else if ((e.getActionCommand()).equals("打开图片")) {
             if (!va.equals("") && !ca.equals("") && flag.equals(1)) {
