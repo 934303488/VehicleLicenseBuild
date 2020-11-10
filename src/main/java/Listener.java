@@ -11,8 +11,8 @@ public class Listener implements ActionListener {
     private final JLabel jLabelVanNumber;
     private final JLabel jLabelSuccess;
 
-    //设置变量用来作为标签
-    Integer flag=0;
+    //设置标签用来作为是否生成过图片的标识
+    private Integer flag=0;
 
 
     /**

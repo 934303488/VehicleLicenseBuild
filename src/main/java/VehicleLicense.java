@@ -73,10 +73,9 @@ public class VehicleLicense {
 
 
     @SneakyThrows
-    public static String imageBuilder(String VanNumber, String CarType) {
+    public static void imageBuilder(String VanNumber, String CarType) {
         File file=new File("file/VehicleLicenseFCopy.png");//正面源图片地址
         File fileTage=new File("output/VehicleLicenseFCopy.png");//正面目标图片的地址
-        FileOutputStream outputStreamTarge = new FileOutputStream(fileTage);
         File backSrcImg=new File("file/VehicleLicenseBCopy.png");//背面源图片地址
         File backTarImg=new File("output/VehicleLicenseBCopy.png");//背面目标图片的地址
 
@@ -107,6 +106,5 @@ public class VehicleLicense {
         //编辑背面图片
         writeImage(backSrcImg, backTarImg, backList);
 
-        return null;
     }
 }
